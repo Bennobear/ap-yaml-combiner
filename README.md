@@ -19,11 +19,11 @@ Install required packages:
 
 Run the program:
 
-    python ap_random_yaml_gui.py
+    python ap_yaml_combiner.py
 
 ## Files in this repository
 
-- `ap_random_yaml_gui.py` — the main application
+- `ap_yaml_combiner.py` — the main application
 - `requirements.txt` — Python dependencies
 - `.gitignore` — ignores Python caches and build artifacts
 
