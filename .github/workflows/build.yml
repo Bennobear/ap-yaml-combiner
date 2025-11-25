@@ -1,4 +1,4 @@
-name: Build Windows EXE
+name: Build Windows EXE and Upload Release
 
 on:
   push:
@@ -26,10 +26,17 @@ jobs:
 
       - name: Build EXE
         run: |
-          pyinstaller --onefile --windowed ap_yaml_combiner.py
+          pyinstaller --onefile --windowed ap_random_yaml_gui.py
 
-      - name: Upload EXE artifact
+      - name: Upload EXE to workflow artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Archipelago-YAML-Combiner
-          path: dist/ap_yaml_combiner.exe
+          path: dist/ap_random_yaml_gui.exe
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/ap_random_yaml_gui.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
